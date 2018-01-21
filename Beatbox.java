@@ -15,4 +15,18 @@ public class BeatBoxFinal {
 	ArrayList<JCheckBox> checkboxList;
 	int nextNum;
 	Vector<String> listVector = new Vector<String, boolean[]>();
+	String userName;
+	ObjectOutputStream out;
+	ObjectInputStream in;
+	HashMap<String, boolean[]> otherSeqsMap = new HashMap<String, boolean[]>();
+	
+	Sequencer sequencer;
+	Sequence sequence;
+	Sequence mySequence = null;
+	Track track;
+	
+	
+	String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat", "Acoustic Snare", "Crash Cymbal", "Hand Clap", "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga", "Cowbell", "Vibraslap", "Low-mid Tom", "High Agogo", "Open Hi Conga"};
+	
+	int[]
 	
