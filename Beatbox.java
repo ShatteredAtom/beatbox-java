@@ -13,3 +13,6 @@ public class BeatBoxFinal {
 	JList incomingList;
 	JTextField userMessage;
 	ArrayList<JCheckBox> checkboxList;
+	int nextNum;
+	Vector<String> listVector = new Vector<String, boolean[]>();
+	
