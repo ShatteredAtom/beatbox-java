@@ -74,4 +74,56 @@ public void buildGUI() {
 	downTempo.addActionListener(new MyDownTempoListener());
 	buttonBox.add(downTempo);
 	
+	JButton sendIt = new JButton("sendIt");
+	sendIt.addActionListener(new MySendListener());
+	buttonBox.add(sendIt);
 	
+	userMessage = new JTextField();
+	buttonBox.add(userMessage);
+	incomingList = new JList();
+	incomingList.addListSelectionListener(new MyListSelectionListener());
+	incomingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	JScrollPane the List = new JScrollPane(incomingList);
+	buttonBox.add(theList);
+	incomingList.setListData(listVector);
+	
+	Box nameBox = new Box(BoxLayout.Y_AXIS);
+	for (int i = 0; i < 16; i++) {
+		nameBox.add(new Label(instrumentNames[i]));
+	}
+	
+	background.add(BorderLayout.EAST, buttonBox);
+	background.add(BorderLayout WEST, nameBox);
+	
+	theFrame.getContentPane().add(background);
+	GridLayout grid = new GridLayout(16,16);
+	grid.setVgap(1);
+	grid.setHgap(2);
+	mainPanel = new JPanel(grid):
+	background.add(BorderLayout.CENTER, mainPanel);
+	
+	for (int i = 0; i < 256; i++) {
+		JCheckBox c = new JCheckBox();
+		c.setSelected(false);
+		checkboxList.add(c);
+		mainPanel.add(c);
+	}
+	
+	theFrame.setBounds(50,50,300,300);
+	theFrame.pack();
+	theFrame.setVisible(true);
+     }
+
+     public void setUpMidi() {
+	     try {
+	     sequencer = MidiSystem.getSequencer();
+	     sequencer.open();
+	     sequence = new Sequence(Sequence.PPQ,4);
+             track = sequence.createTrack();
+	     sequencer.setTempoInBPM(120);
+	     } catch(Exception e) {e.printStackTrace();}
+	     
+     }
+			  
+		
+				 
